@@ -17,7 +17,7 @@
         "xdtPath": "/app_config/transforms/web.config.xdt",
         "targetPath": "/web.config"
       }  
-    ]
+    ],
     "postActions": {
         "actions":{
           "warmUpCm": {
