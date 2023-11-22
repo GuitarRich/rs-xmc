@@ -60,6 +60,9 @@
     <Content Include="app_config\transforms\Web.config.xdt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="app_config\include\zzz_testenvvars.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Sitecore.XmCloud.Kernel" />
