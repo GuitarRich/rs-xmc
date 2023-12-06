@@ -3,10 +3,13 @@ import {
   RichText as JssRichText,
   useSitecoreContext,
   RichTextField,
+  DateField,
+  Field,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   Content: RichTextField;
+  AuthoredDate: Field<string?>;
 }
 
 type PageContentProps = {
@@ -50,10 +53,16 @@ export const Default = (props: PageContentProps): JSX.Element => {
       ? props.fields.Content
       : sitecoreContext?.route?.fields?.Content
   ) as RichTextField;
+  const dateField = {
+    props.fields && props.fields.AuthoredDate
+      ? props.fields.AuthoredDate
+      : sitecoreContext?.route?.fields?.AuthoredDate
+  } as Field<string>;
 
   return (
     <ComponentContent styles={props.params.styles} id={id}>
       <JssRichText field={field} />
+      <DateField field={dateField} render=((date) => <span>(date && date.toDateString())</span> />) />
     </ComponentContent>
   );
 };
