@@ -9,7 +9,7 @@ import {
 
 interface Fields {
   Content: RichTextField;
-  AuthoredDate: Field<string?>;
+  AuthoredDate: Field<string>;
 }
 
 type PageContentProps = {
@@ -53,16 +53,20 @@ export const Default = (props: PageContentProps): JSX.Element => {
       ? props.fields.Content
       : sitecoreContext?.route?.fields?.Content
   ) as RichTextField;
-  const dateField = {
+  const dateField = (
     props.fields && props.fields.AuthoredDate
       ? props.fields.AuthoredDate
       : sitecoreContext?.route?.fields?.AuthoredDate
-  } as Field<string>;
+   ) as Field<string>;
 
   return (
-    <ComponentContent styles={props.params.styles} id={id}>
-      <JssRichText field={field} />
-      <DateField field={dateField} render=((date) => <span>(date && date.toDateString())</span> />) />
-    </ComponentContent>
+    <>
+      <ComponentContent styles={props.params.styles} id={id}>
+        <>
+          <h2>This is on CodeSpaces</h2>
+          <JssRichText field={field} />
+        </>
+      </ComponentContent>
+    </>
   );
 };
